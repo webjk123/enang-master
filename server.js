@@ -21,7 +21,10 @@ mongoose.connect(secret.database,function(err){
 		console.log('connected to the Database');
 	}
 })
-app.set('port', (process.env.Port || 5000));
+app.set('port', (process.env.PORT || 5000));
+
+
+
 //middleware
 app.use(express.static(__dirname + '/public'));
 app.use(morgan('dev'));
@@ -61,7 +64,9 @@ user.save(function(err){
 	res.json('Successfully created a new user');
 });
 });
-
+app.listen(app.get('port'),function(){
+	console.log('Node app on port' + app.get('port'));
+});
 
 
 
@@ -69,10 +74,10 @@ user.save(function(err){
     var name = "Jatin";
     res.json("My name is" + name);
 });*/
-app.listen(secret.port,function(err){
-    if(err) throw err;
-    console.log("App is running on port " + 5000);
-});
+// app.listen(secret.port,function(err){
+//     if(err) throw err;
+//     console.log("App is running on port " + secret.port);
+// });
 
 //mongousername=jkmongodb
 //mongopassword=mongo123
