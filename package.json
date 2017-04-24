@@ -4,7 +4,8 @@
   "description": "ecommerce_site",
   "main": "server.js",
   "dependencies": {
- "express":"*"
+ "express":"*",
+ "ejs":"2.5.6"
  },
   "devDependencies": {},
   "scripts": {

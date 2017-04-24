@@ -49,6 +49,7 @@ app.set('view engine','ejs');
 
 var mainRoutes = require('./routes/main');
 var userRoutes = require('./routes/user');
+var router = require('express').Router();
 
 app.use(mainRoutes);
 app.use(userRoutes);
