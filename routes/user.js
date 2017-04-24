@@ -53,7 +53,7 @@ User.findOne({ email: req.body.email}, function(err, existingUser){
 });
 router.get('/logout', function(req,res,next){
 	req.logout();
-	res.redirect('/sign-up');
+	res.redirect('/');
 });
 
 router.get('/edit-profile', function(req,res,next){

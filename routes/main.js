@@ -2,7 +2,7 @@ var router = require('express').Router();
 
 
 router.get('/',function(req,res){
-res.render('accounts/signup');
+res.render('main/home');
 });
 
 router.get('/about',function(req,res){

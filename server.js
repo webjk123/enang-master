@@ -20,8 +20,8 @@ mongoose.connect(secret.database,function(err){
 	{
 		console.log('connected to the Database');
 	}
-})
-app.set('port', (process.env.PORT || 5000));
+});
+app.set('port', (process.env.PORT || 3000));
 
 
 
