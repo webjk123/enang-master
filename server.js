@@ -21,6 +21,7 @@ mongoose.connect(secret.database,function(err){
 		console.log('connected to the Database');
 	}
 })
+app.set('port', (process.env.Port || 5000));
 //middleware
 app.use(express.static(__dirname + '/public'));
 app.use(morgan('dev'));
@@ -70,7 +71,7 @@ user.save(function(err){
 });*/
 app.listen(secret.port,function(err){
     if(err) throw err;
-    console.log("App is running on port " + secret.port);
+    console.log("App is running on port " + 5000);
 });
 
 //mongousername=jkmongodb
