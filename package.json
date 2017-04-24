@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "description": "ecommerce_site",
   "main": "server.js",
+  "scripts":{
+    "start": "node index.js"
+  },
   "dependencies": {
- "express":"*"
+    "express":"*"
  },
   "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "engines":{
     "node": "6.10.2"
   },
