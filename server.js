@@ -11,6 +11,7 @@ var flash = require('express-flash');
 var MongoStore = require('connect-mongo/es5')(session);
 var passport = require('passport');
 var User = require('./models/user');
+var Category = require('./models/category');
 var secret = require('./config/secret');
 mongoose.connect(secret.database,function(err){
 	if(err){
@@ -21,7 +22,7 @@ mongoose.connect(secret.database,function(err){
 		console.log('connected to the Database');
 	}
 });
-app.set('port', (process.env.PORT || 3000));
+app.set('port', (process.env.PORT || 5000));
 
 
 
@@ -44,15 +45,26 @@ app.use(function(req,res,next){
 	res.locals.user = req.user;
 	next();
 });
+app.use(function(req,res,next){
+	Category.find({},function(err, categories){
+		if(err) return next(err);
+		res.locals.categories = categories;
+		next();
+	});
+});
+
+
 app.engine('ejs',engine);
 app.set('view engine','ejs');
 
 var mainRoutes = require('./routes/main');
 var userRoutes = require('./routes/user');
-var router = require('express').Router();
-
+var adminRoutes = require('./routes/admin');
+var apiRoutes = require('./api/api');
 app.use(mainRoutes);
 app.use(userRoutes);
+app.use(adminRoutes);
+app.use('/api',apiRoutes);
 app.post('/create',function(req, res, next){
 var user = new User();
 
